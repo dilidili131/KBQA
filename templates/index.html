@@ -1,0 +1,57 @@
+{% include "navigate.html" %}{% block mainbody %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <!--overview start-->
+            <section class="panel panel-default">
+                <header class="panel-heading">
+                    输入文本（300字以内） :
+                </header>
+
+                <div class="panel-body">
+                    <form action="/answer-search/" method="post">
+                        <div class="form-group">
+                            {% csrf_token %}
+                            <textarea type="text" name="user_text" class="form-control" placeholder="Enter text" style="height:140px"> </textarea>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                {% autoescape off %}
+                                <h5>{{ question }}</h5>
+                                {% endautoescape %}
+                            </div>
+                    </div>
+
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn-primary btn-lg btn-block"> 确认 </button>
+                        </div>
+                        <div class="col-md-4"></div>
+                    </form>
+                </div>
+            </section>
+
+
+            <div class="panel-group m-bot20" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    回答>>
+                        </a>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            {% autoescape off %}
+                            <h5>{{ rlt }}</h5>
+                            {% endautoescape %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

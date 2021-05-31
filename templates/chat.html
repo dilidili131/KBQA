@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>chat</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    <link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- Graph CSS -->
+    <link href="/static/css/font-awesome.css" rel="stylesheet">
+    <!-- jQuery -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- lined-icons -->
+    <link rel="stylesheet" href="/static/css/icon-font.min.css" type='text/css' />
+    <!-- //lined-icons -->
+    <script src="/static/js/jquery-1.10.2.min.js"></script>
+    <!--聊天插件-->
+    <link rel="stylesheet" type="text/css" href="/static/css/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/chat.css">
+    <!--链表插件-->
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/jq22-demo.css">
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="/static/css/liststyle.css">
+    <!--按鈕-->
+    <link rel="stylesheet" href="/static/css/buttons.css">
+</head>
+<body>
+<div class="page-container">
+    <!--/content-inner-->
+    <!-- head -->
+    <div class="header-section">
+        <!-- top_bg -->
+        <div class="top_bg">
+
+            <div class="header_top">
+                <div class="top_right">
+                    <h2><span>寻医问药小助手</span></h2>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <!-- /top_bg -->
+    </div>
+
+    <!--用户可问问题-->
+    <div class="leaderboard">
+        <h1>
+            用户可咨询问题：
+        </h1>
+        <div class="col-md-6">
+            <ol>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+            </ol>
+        </div>
+        <div class="col-md-6">
+            <ol>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+                <li>1. 查询某种疾病症状</li>
+            </ol>
+        </div>
+
+    </div>
+
+    <!--对话框-->
+    <div class="chatContainer">
+        <div class="chatBox" ref="chatBox">
+            <!--聊天界面标头-->
+            <div class="chatBox-head">
+                <div class="chatBox-head-two">
+                    <div class="chat-people">
+                        <div class="ChatInfoHead">
+                            <img src="/static/img/head_portrait.png" alt="头像"/>
+                        </div>
+                        <div class="ChatInfoName">寻医问药小助手</div>
+                    </div>
+                </div>
+            </div>
+            <!--对话界面-->
+            <div class="chatBox-info">
+                <div class="chatBox-kuang" ref="chatBoxkuang">
+                    <div class="chatBox-content">
+                        <div class="chatBox-content-demo" id="chatBox-content-demo">
+                            <!--预设聊天语句-->
+                            <div class="clearfloat">
+                                <div class="author-name">
+                                    <small class="chat-date"></small>
+                                </div>
+                                <div class="left">
+                                    <div class="chat-avatars"><img src="/static/img/head_portrait.png" alt="头像"/></div>
+                                    <div class="chat-message">
+                                        您可以向我提问有关医疗领域的任何您想要问的问题=^_^=
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="msg_end" style="height:0px; overflow:hidden"></div>
+                    </div>
+
+                    <!--发送消息表单-->
+                    <div class="chatBox-send" style="height: 5%">
+
+                        <div class="div-textarea"style="width: 98%" contenteditable="true"></div>
+                        <div style="margin-left: 10px;margin-top: 1px">
+                            <button id="chat-fasong" class="btn-default-styles"><i class="iconfont icon-fasong"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Chat2" style="position: absolute;top: 10%;">
+        <img src="/static/img/user_right_logo.png">
+    </div>
+</div>
+<!--/sidebar-menu-->
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script>
+    $(window).load(function () {
+        var nowtime = new Date().format("yyyy-MM-dd hh:mm:ss");
+        $(".chat-date").html(nowtime);
+        //设定左下角对话框自适应
+        var winWidth = $(window).innerWidth();
+        var winHeight = $(window).innerHeight();
+
+        $(".leaderboard").css("top",(400/653)*winHeight)
+        $(".Chat2>img").css("left",(4/1280)*winWidth)
+        $(".Chat2>img").css("height",(184/653)*winHeight)
+        //设定输入框自适应
+        var sendboxWidth = $(".chatBox-send").width()
+        var sendboxHeight = $(".chatBox-send").height()
+        console.log(sendboxHeight)
+        console.log(sendboxWidth)
+        $(".div-textarea").css("width",sendboxWidth-50)
+        $(".div-textarea").css("height",sendboxHeight)
+
+    });
+    Date.prototype.format = function(fmt) {
+        var o = {
+            "M+" : this.getMonth()+1,                 //月份
+            "d+" : this.getDate(),                    //日
+            "h+" : this.getHours(),                   //小时
+            "m+" : this.getMinutes(),                 //分
+            "s+" : this.getSeconds(),                 //秒
+            "q+" : Math.floor((this.getMonth()+3)/3), //季度
+            "S"  : this.getMilliseconds()             //毫秒
+        };
+        if(/(y+)/.test(fmt)) {
+            fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+        }
+        for(var k in o) {
+            if(new RegExp("("+ k +")").test(fmt)){
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+            }
+        }
+        return fmt;
+    }
+
+    screenFuc();
+    function screenFuc() {
+        var topHeight = $(".chatBox-head").innerHeight();//聊天头部高度
+        //屏幕小于768px时候,布局change
+        var winWidth = $(window).innerWidth();
+        if (winWidth <= 768) {
+            var totalHeight = $(window).height(); //页面整体高度
+            $(".chatBox-info").css("height", totalHeight - topHeight);
+            var infoHeight = $(".chatBox-info").innerHeight();//聊天头部以下高度
+            //中间内容高度
+            $(".chatBox-content").css("height", infoHeight - 46);
+            $(".chatBox-content-demo").css("height", infoHeight - 46);
+
+            $(".chatBox-list").css("height", totalHeight - topHeight);
+            $(".chatBox-kuang").css("height", totalHeight - topHeight);
+            $(".div-textarea").css("width", winWidth - 106);
+            $(".chat-message").css("width",$(".chatBox-content").width()*(500/646));
+            $(".div-textarea").css("width",$(".chatBox-send").width()*(275/397))
+        } else {
+            $(".chatBox-info").css("height", "87%");
+            $(".chatBox-content").css("height", "92%");
+            $(".chatBox-content-demo").css("height", "98%");
+            $(".chatBox-list").css("height", 495);
+            $(".chatBox-kuang").css("height", "100%");
+            $(".div-textarea").css("width", "85%");
+            $(".chat-message").css("width",$(".chatBox-content").width()*(500/646));
+            $(".div-textarea").css("width",$(".chatBox-send").width()*(275/397))
+        }
+
+    }
+    (window.onresize = function () {
+        screenFuc();
+    })();
+
+    //发送信息
+    document.onkeyup = function(e){
+        var ev = document.all ? window.event : e;
+        if(ev.keyCode==13) {
+            answersearch();
+        }
+    };
+    $("#chat-fasong").click(function (){
+        answersearch();
+    });
+
+    <!--返回信息-->
+    function answersearch() {
+        var textContent = $(".div-textarea").html().replace(/[\n\r]/g, "");
+        var time1 = new Date().format("yyyy-MM-dd hh:mm:ss");
+        $.ajaxSetup({
+            data:{csrfmiddlewaretoken:'{{ csrf_token }}'}
+        });
+        $.ajax(
+            {
+                url: '/answer_search/',
+                type: "POST",
+                data: {enter_Question: textContent},
+                success: function (data) {
+                    data = JSON.parse(data);
+                    $("" +
+                        "<div class='clearfloat'>" +
+                            "<div class='author-name'>" +
+                                "<small class='chat-date'>"
+                                    + time1 +
+                                "</small>" +
+                            "</div>" +
+                            "<div class='left'>" +
+                                "<div class='chat-avatars'>" +
+                                    "<img src='/static/img/head_portrait.png' alt='头像'/>" +
+                                "</div>" +
+                                "<div class='chat-message'>" +
+                                    data["answer"] +
+                                "</div>" +
+                            "</div>" +
+                        "</div>").appendTo($("#chatBox-content-demo"));
+                },
+                error: function (data) {
+                    console.log(data)
+
+                }
+            });
+        console.log(textContent);
+        if (textContent != "") {
+            $(".chatBox-content-demo").append("" +
+                "<div class=\"clearfloat\">" +
+                    "<div class=\"author-name\">" +
+                        "<small class=\"chat-date\">"+
+                            time1+"" +
+                        "</small> " +
+                    "</div> " +
+                    "<div class=\"right\"> " +
+                        "<div class=\"chat-message\"> " +
+                            textContent +
+                        "</div> " +
+                        "<div class=\"chat-avatars\">" +
+                            "<img src=\"/static/img/user.jpg\" alt=\"头像\" />" +
+                        "</div> " +
+                    "</div> " +
+                "</div>");
+            //发送后清空输入框
+            $(".div-textarea").html("");
+            //聊天框默认最底部
+            $(document).ready(function () {
+                $("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
+            });
+        }
+    }
+</script>
+</body>
+</html>
