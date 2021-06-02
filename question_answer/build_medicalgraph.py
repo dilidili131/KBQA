@@ -23,7 +23,7 @@ class MedicalGraph:
         symptoms = []    #症状
         disease_infos = []#疾病信息
 
-        #构建节点实体关系
+        #构建11类节点实体关系
         rels_department = []     #科室－科室关系
         rels_noteat = []         #疾病－忌吃食物关系
         rels_doeat = []          #疾病－宜吃食物关系
@@ -186,7 +186,6 @@ class MedicalGraph:
         self.create_node('Producer', Producers)
         print(len(Producers))
         self.create_node('Symptom', Symptoms)
-        return'通常可以通过{0}检查出来的疾病有{1}'
 
 
     '''创建实体关系边'''
