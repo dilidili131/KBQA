@@ -34,7 +34,7 @@ class MedicalGraph:
             '所属类别': 'category',
             '简介': 'desc',
             '名称': 'name',
-            '常用药品' : 'common_drug',
+            '常用药品':'common_drug',
             '治疗费用': 'cost_money',
             '并发症': 'acompany'
         }
